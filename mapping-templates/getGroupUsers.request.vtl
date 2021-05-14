@@ -1,0 +1,21 @@
+#set($limit=$util.defaultIfNull($ctx.args.limit, 10))
+#if($limit>100)
+  #set($limit=100)
+#end
+{
+  "version": "2018-05-29",
+  "operation": "Query",
+  "limit": $util.toJson($limit),
+  "nextToken": $util.toJson($ctx.args.nextToken),
+  "query" : {
+    "expression": "#PK = :PK and begins_with(#SK, :SK)",
+    "expressionNames" : {
+      "#PK": "PK",
+      "#SK": "SK"
+    },
+    "expressionValues" : {
+      ":PK": $util.dynamodb.toStringJson("GROUP#${ctx.args.id}"),
+      ":SK": $util.dynamodb.toStringJson("USER#")
+    }
+  }
+}

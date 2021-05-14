@@ -1,0 +1,7 @@
+#set($items=[])
+#foreach($item in $ctx.result.data.get("users"))
+  #set($groupUser=$ctx.prev.result.get($foreach.index))
+  $util.qr($groupUser.put("user", $item))
+  $util.qr($items.add($groupUser))
+#end
+$util.toJson($items)

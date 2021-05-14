@@ -1,0 +1,20 @@
+type Query {
+  getGroupUsers(id: ID!, limit: Int, nextToken: String): GroupUsersResult
+}
+
+type GroupUsersResult {
+  items: [GroupUser!]!
+  nextToken: String
+}
+
+type GroupUser {
+  joinedAt: AWSDateTime
+  user: User!
+}
+
+type User {
+  id: ID!
+  name: String!
+  bio: String!
+  picture: String!
+}

@@ -1,0 +1,20 @@
+#if($ctx.prev.result.size() == 0)
+    #return([])
+#end
+#set($keys=[])
+#foreach($item in $ctx.prev.result)
+  ## the user and PK/SK is the SK from the Item received from the previous function
+  $util.qr($keys.add({
+    "PK": $util.dynamodb.toDynamoDB(${item.SK}),
+    "SK": $util.dynamodb.toDynamoDB(${item.SK})
+  }))
+#end
+{
+    "version": "2018-05-29",
+    "operation": "BatchGetItem",
+    "tables" : {
+        "users": {
+            "keys": $util.toJson($keys)
+        }
+    }
+}

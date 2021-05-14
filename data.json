@@ -1,0 +1,30 @@
+[
+  {
+    "PK": "USER#789",
+    "SK": "USER#789",
+    "id": "789",
+    "name": "John",
+    "bio": "Backend developer",
+    "picture": "http://example.com/image2.jpg"
+  },
+  {
+    "PK": "USER#456",
+    "SK": "USER#456",
+    "id": "456",
+    "name": "Mike",
+    "bio": "Frontend developer",
+    "picture": "http://example.com/image.jpg",
+    "__dynobase__phantom": true,
+    "__dynobase__operationId": "nqiyoszhn48jrfip2wo2rg6l0lgmx303d"
+  },
+  {
+    "PK": "GROUP#123",
+    "SK": "USER#789",
+    "joinedAt": "2021-05-14T13:17:18Z"
+  },
+  {
+    "PK": "GROUP#123",
+    "SK": "USER#456",
+    "joinedAt": "2021-05-13T13:17:18Z"
+  }
+]
